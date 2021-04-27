@@ -1,26 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import Navigation from './Navigation'
+import React, { useState } from 'react'
 import Chart from './Chart'
-import Stats from './Stats'
-import AgeTable from './AgeTable'
+import Home from './Home'
 import FilterBox from './FilterBox'
 import DataTable from './DataTable'
-import recordsService from '../services/records'
-import {
-  BrowserRouter as Router,
-  Switch, Route, Link
-} from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
   root: {
-
+    margin: 'auto',
   },
 })
 
 
-const Main = ({ records, ageGroups }) => {
+const Main = ({ records, ageGroups, timestamp }) => {
   const [ageFilter, setAgeFilter] = useState([0, 120])
   const [sexFilter, setSexFilter] = useState('all')
   const [comorbidityFilter, setComorbidityFilter] = useState('')
@@ -82,9 +76,6 @@ const Main = ({ records, ageGroups }) => {
             filteredRecords={filteredRecords}
           />
         </Route>
-        <Route path='/agetable'>
-          <AgeTable ageGroups={ageGroups} />
-        </Route>
         <Route path='/datatable'>
           <FilterBox 
             ageFilter={ageFilter}
@@ -105,7 +96,7 @@ const Main = ({ records, ageGroups }) => {
           />
         </Route>
         <Route path="/">
-          <Stats records={records} />
+          <Home records={records} timestamp={timestamp} />
         </Route>
       </Switch>
     </Container>

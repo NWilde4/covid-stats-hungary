@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import {
   AppBar,
   Toolbar,
-  Paper,
   Button,
   Typography,
   Grid
@@ -25,27 +24,27 @@ const Navigation = () => {
       <Toolbar variant='dense'>
         <Grid container justify="space-between">
           <Grid item>
-            <Typography variant='h6'>
-              COVID STATS HUNGARY
-            </Typography>
+            <Button color='inherit' component={Link} to='/'>
+              <Typography variant='h6'>
+                Covid-19 halálozások
+              </Typography>
+            </Button>
           </Grid>
           <Grid item>
             <Button color='inherit' component={Link} to='/'>
-              Home
+              Kezdőlap
             </Button>
             <Button color='inherit' component={Link} to='/chart'>
-              Chart
-            </Button>
-            <Button color='inherit' component={Link} to='/agetable'>
-              Age Table
+              Diagram
             </Button>
             <Button color='inherit' component={Link} to='/datatable'>
-              Data Table
+              Táblázat
             </Button>
             <Button 
               color='inherit' 
-              href='http://localhost:3001/records' 
+              href='http://localhost:3001/api/records' 
               target="_blank"
+              rel="noreferrer"
             >
               API
             </Button>

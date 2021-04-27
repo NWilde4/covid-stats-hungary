@@ -6,11 +6,9 @@ import {
   FormControlLabel,
   FormControl,
   FormLabel,
-  FormGroup,
   Typography,
   TextField,
   Grid,
-  Paper,
   Switch
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -18,8 +16,8 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    paddingTop: 20,
-    paddingBottom: 20
+    marginTop: 5,
+    marginBottom: 5
   }
 })
 
@@ -41,21 +39,22 @@ const FilterBox = (props) => {
       container 
       className={classes.root} 
       spacing={1} 
-      justify="space-evenly" 
+      justify="space-evenly"
+      alignItems="center"
     >
       <Grid item xs={12} sm={3}>
         <FormControl component="fieldset">
-          <FormLabel component="legend">Gender</FormLabel>
+          <FormLabel component="legend">Nem</FormLabel>
           <RadioGroup row value={props.sexFilter} onChange={props.handleSexFilterChange}>
-            <FormControlLabel value="all" control={<Radio />} label="All" />
-            <FormControlLabel value="female" control={<Radio />} label="Female" />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
+            <FormControlLabel value="all" control={<Radio />} label="Mind" />
+            <FormControlLabel value="female" control={<Radio />} label="Nő" />
+            <FormControlLabel value="male" control={<Radio />} label="Férfi" />
           </RadioGroup>
         </FormControl>
       </Grid>
       <Grid item xs={12} sm={3}>
         <Typography id="range-slider" gutterBottom>
-          Age range
+          Életkor
         </Typography>      
         <Slider
           max={120}
@@ -76,13 +75,14 @@ const FilterBox = (props) => {
               onChange={props.toggleExcludeWithComorbidity}
             />
           }
-          label="Show only without comorbidities"
+          label="Csak alapbetegségek nélkül"
         />
       </Grid>
       <Grid item xs={12} sm={3}>
-        <TextField 
-          label="Comorbidities" 
+        <TextField
+          label="Alapbetegségek" 
           variant="outlined"
+          fullWidth
           value={props.comorbidityFilter}
           onChange={props.handleComorbidityFilterChange}
           disabled={props.excludeWithComorbidity}

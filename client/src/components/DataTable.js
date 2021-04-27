@@ -15,10 +15,11 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles({
   root: {
     margin: 0,
-    marginBottom: 20
+    marginBottom: 20,
+    minWidth: '80vw'
   },
   container: {
-    maxHeight: 400,
+    // maxHeight: 400,
   }
 })
 
@@ -26,7 +27,7 @@ const DataTable = (props) => {
   const classes = useStyles()
 
   const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [rowsPerPage, setRowsPerPage] = useState(5)
 
   const {
     ageFilter,
@@ -62,10 +63,10 @@ const DataTable = (props) => {
         >
           <TableHead>
             <TableRow>
-              <TableCell align="right">Id</TableCell>
-              <TableCell>Sex</TableCell>
-              <TableCell>Age</TableCell>
-              <TableCell>Comorbidities</TableCell>
+              <TableCell style={{width: '5%'}}>Sorszám</TableCell>
+              <TableCell style={{width: '5%'}}>Nem</TableCell>
+              <TableCell style={{width: '5%'}}>Életkor</TableCell>
+              <TableCell style={{width: '85%'}}>Alapbetegségek</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -83,7 +84,7 @@ const DataTable = (props) => {
           </TableBody>
           <TableFooter>
             <TableRow>
-              <TableCell colSpan="4">Total: {rows.length}</TableCell>
+              <TableCell colSpan="4">Összesen: {rows.length}</TableCell>
             </TableRow>
           </TableFooter>
         </Table>
@@ -95,6 +96,7 @@ const DataTable = (props) => {
         page={page}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
+        rowsPerPageOptions={[5, 10, 25, 50, 100]}
       />
     </Paper>
   )

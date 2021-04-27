@@ -1,16 +1,15 @@
 import React from 'react'
 import {
-  Typography,
-  Container,
-  Link
+  Typography
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles({
   root: {
-    marginTop: 'auto',
+    marginTop: 20,
     backgroundColor: 'LightGray',
-    padding: 20,
+    padding: 10,
+    textAlign: 'center'
   }
 })
 
@@ -20,11 +19,18 @@ const Footer = () => {
 
   return (
     <footer className={classes.root}>
-      <Container>
-        <Typography variant="body1">
-          This is the footer
-        </Typography>
-      </Container>
+      <Typography variant="body1">
+        Wilde Norman © 2021
+      </Typography>
+      <Typography variant="body2">
+        <a 
+          href='https://koronavirus.gov.hu/elhunytak' 
+          target="_blank"
+          rel="noreferrer"
+        >
+        Adatforrás
+        </a>
+      </Typography>
     </footer>
   )
 }

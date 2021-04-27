@@ -2,15 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Navigation from './components/Navigation'
 import Main from './components/Main'
 import Footer from './components/Footer'
-import Chart from './components/Chart'
-import Stats from './components/Stats'
-import AgeTable from './components/AgeTable'
-import Dashboard from './components/Dashboard'
-import recordsService from './services/records'
-import {
-  BrowserRouter as Router,
-  Switch, Route, Link
-} from 'react-router-dom'
+import dataService from './services/data'
+import timestampService from './services/timestamp'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { Container, CssBaseline } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
@@ -31,12 +25,16 @@ const useStyles = makeStyles({
 
 const App = () => {
   const [records, setRecords] = useState([])
+  const [timestamp, setTimestamp] = useState('')
   const classes = useStyles()
 
   useEffect(() => {
-    recordsService
+    dataService
       .getAll()
       .then(records => setRecords(records))
+    timestampService
+      .getAll()
+      .then(timestamp => setTimestamp(timestamp))
   }, [])
 
   const ageGroupArray = []
@@ -60,7 +58,8 @@ const App = () => {
         <Router>
           <Navigation />
           <Main 
-            records={records} 
+            records={records}
+            timestamp={timestamp}
             ageGroups={ageGroupArray}
             className={classes.main} 
           />
