@@ -16,6 +16,8 @@ const useStyles = makeStyles({
   }
 })
 
+const baseUrl = `${window.location.origin}/api/records`
+
 const Navigation = () => {
   const classes = useStyles()
 
@@ -42,7 +44,7 @@ const Navigation = () => {
             </Button>
             <Button 
               color='inherit' 
-              href='http://localhost:3001/api/records' 
+              href={baseUrl}
               target="_blank"
               rel="noreferrer"
             >

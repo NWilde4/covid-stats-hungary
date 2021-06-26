@@ -5,7 +5,7 @@ const cors = require('cors')
 
 app.use(cors())
 
-app.use(express.static('build'))
+app.use(express.static('client/build'))
 
 app.get('/api/records', (request, response) => {
   fs.readFile('./database/db.json', (error, json) => {
