@@ -46,7 +46,7 @@ const Navigation = () => {
               target="_blank"
               rel="noreferrer"
             >
-              Nyers Adatok
+              API
             </Button>
           </Grid>
         </Grid>

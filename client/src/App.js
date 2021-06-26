@@ -15,6 +15,12 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     minHeight: '100vh',
   },
+  header: {
+
+  },
+  main: {
+    display: 'flex'
+  }
 })
 
 const App = () => {
@@ -55,6 +61,7 @@ const App = () => {
             records={records}
             timestamp={timestamp}
             ageGroups={ageGroupArray}
+            className={classes.main} 
           />
           <Footer />
         </Router>
