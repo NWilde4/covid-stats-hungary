@@ -21,6 +21,10 @@ app.get('/api/last-update', (request, response) => {
   })
 })
 
+app.get('/health', (request, response) => {
+  response.send('ok')
+})
+
 const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
