@@ -6,7 +6,6 @@ import math
 import json
 from datetime import datetime
 
-now = datetime.now()
 counter = 0
 last_page_not_reached = True
 
@@ -49,7 +48,7 @@ while last_page_not_reached:
   counter += 1
 
 # Create JSON file of records.
-dt_string = now.strftime("%Y.%m.%d %H:%M:%S")
+dt_string = datetime.now().strftime("%Y.%m.%d %H:%M:%S")
 
 data_object = {
   "last-update-timestamp": dt_string,
