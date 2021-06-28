@@ -20,11 +20,12 @@ jobs:
         run: python -m pip install -r database/requirements.txt
       - name: execute py script
         run: python database/db_updater.py
-      - name: Commit report
+      - name: commit updated database
         run: |
           git config --global user.name 'NWilde4'
           git config --global user.email ${{secrets.USER_EMAIL}}
-          git commit -am "automatic database update"
+          git add database/db.json
+          git commit -m "automatic database update"
           git push
       - uses: actions/setup-node@v1
         with:
