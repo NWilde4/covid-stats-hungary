@@ -19,7 +19,7 @@ jobs:
       - name: install dependencies
         run: python -m pip install -r database/requirements.txt
       - name: execute py script
-        run: python database/db_updater.py
+        run: cd database && python db_updater.py
       - name: commit updated database
         run: |
           git config --global user.name 'NWilde4'
