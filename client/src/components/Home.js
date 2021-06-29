@@ -96,7 +96,7 @@ const Home = ({ records, timestamp }) => {
         <Typography variant='body1'>
           Az oldal a magyarországi koronavírusos elhunytak adatait dolgozza fel és
           teszi közzé kereshető és szűrhető formában. Az adatok a hivatalos 
-          tájékoztató oldalról származnak és a rendszeresen frissülnek.
+          tájékoztató oldalról származnak és rendszeresen frissülnek.
         </Typography>
         <Typography variant='body2'>
           Utolsó frissítés: {timestamp}
