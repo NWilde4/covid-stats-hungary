@@ -10,7 +10,6 @@ import {
 const useStyles = makeStyles({
   root: {
     margin: 'auto',
-    maxWidth: '800px',
   },
   headline: {
     textAlign: 'center',

@@ -11,6 +11,9 @@ const useStyles = makeStyles({
   root: {
     margin: 'auto',
   },
+  pageContainer: {
+
+  }
 })
 
 
@@ -62,41 +65,47 @@ const Main = ({ records, ageGroups, timestamp }) => {
     <Container className={classes.root}>
       <Switch>
         <Route path="/chart">
-          <FilterBox 
-            ageFilter={ageFilter}
-            handleAgeFilterChange={handleAgeFilterChange}
-            sexFilter={sexFilter}
-            handleSexFilterChange={handleSexFilterChange}
-            comorbidityFilter={comorbidityFilter}
-            handleComorbidityFilterChange={handleComorbidityFilterChange}
-            excludeWithComorbidity={excludeWithComorbidity}
-            toggleExcludeWithComorbidity={toggleExcludeWithComorbidity}
-          />
-          <Chart 
-            filteredRecords={filteredRecords}
-          />
+          <div className={classes.pageContainer}>
+            <FilterBox 
+              ageFilter={ageFilter}
+              handleAgeFilterChange={handleAgeFilterChange}
+              sexFilter={sexFilter}
+              handleSexFilterChange={handleSexFilterChange}
+              comorbidityFilter={comorbidityFilter}
+              handleComorbidityFilterChange={handleComorbidityFilterChange}
+              excludeWithComorbidity={excludeWithComorbidity}
+              toggleExcludeWithComorbidity={toggleExcludeWithComorbidity}
+            />
+            <Chart 
+              filteredRecords={filteredRecords}
+            />
+          </div>
         </Route>
         <Route path='/datatable'>
-          <FilterBox 
-            ageFilter={ageFilter}
-            handleAgeFilterChange={handleAgeFilterChange}
-            sexFilter={sexFilter}
-            handleSexFilterChange={handleSexFilterChange}
-            comorbidityFilter={comorbidityFilter}
-            handleComorbidityFilterChange={handleComorbidityFilterChange}
-            excludeWithComorbidity={excludeWithComorbidity}
-            toggleExcludeWithComorbidity={toggleExcludeWithComorbidity}
-          />
-          <DataTable 
-            filteredRecords={filteredRecords}
-            ageFilter={ageFilter}
-            sexFilter={sexFilter}
-            comorbidityFilter={comorbidityFilter}
-            excludeWithComorbidity={excludeWithComorbidity}
-          />
+          <div className={classes.pageContainer}>
+            <FilterBox 
+              ageFilter={ageFilter}
+              handleAgeFilterChange={handleAgeFilterChange}
+              sexFilter={sexFilter}
+              handleSexFilterChange={handleSexFilterChange}
+              comorbidityFilter={comorbidityFilter}
+              handleComorbidityFilterChange={handleComorbidityFilterChange}
+              excludeWithComorbidity={excludeWithComorbidity}
+              toggleExcludeWithComorbidity={toggleExcludeWithComorbidity}
+            />
+            <DataTable 
+              filteredRecords={filteredRecords}
+              ageFilter={ageFilter}
+              sexFilter={sexFilter}
+              comorbidityFilter={comorbidityFilter}
+              excludeWithComorbidity={excludeWithComorbidity}
+            />
+          </div>
         </Route>
         <Route path="/">
-          <Home records={records} timestamp={timestamp} />
+          <div className={classes.pageContainer}>
+            <Home records={records} timestamp={timestamp} />
+          </div>
         </Route>
       </Switch>
     </Container>
