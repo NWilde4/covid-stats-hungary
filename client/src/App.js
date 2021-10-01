@@ -50,7 +50,7 @@ const App = () => {
   return (
     <div>
       <CssBaseline />
-      <Container className={classes.root}>
+      <Container className={classes.root} maxWidth={false}>
         <Router>
           <Navigation />
           <Main 
