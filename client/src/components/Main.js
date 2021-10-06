@@ -11,9 +11,6 @@ const useStyles = makeStyles({
   root: {
     margin: 'auto',
   },
-  pageContainer: {
-
-  }
 })
 
 
@@ -62,7 +59,7 @@ const Main = ({ records, ageGroups, timestamp }) => {
   }
 
   return (
-    <Container className={classes.root}>
+    <Container className={classes.root} maxWidth={false}>
       <Switch>
         <Route path="/chart">
           <div className={classes.pageContainer}>
