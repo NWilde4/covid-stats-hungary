@@ -28,7 +28,7 @@ const Navigation = () => {
           <Grid item>
             <Button color='inherit' component={Link} to='/'>
               <Typography variant='h6'>
-                Covid-19 halálozások2
+                Covid-19 halálozások
               </Typography>
             </Button>
           </Grid>
