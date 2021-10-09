@@ -24,6 +24,14 @@ jobs:
           git add .
           git commit -m "automatic database update"
           git push
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: npm install
+        run: npm install
+      - name: build
+        run: npm run build:react
       - name: deploy
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
